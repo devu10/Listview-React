@@ -4,19 +4,32 @@ import { useRef } from "react";
 import { useState } from "react";
 
 function App() {
-  const showList = useRef(null);
+  const listRef = useRef(null);
+  const [displayList, setDisplayList] = useState("");
+  const [displayTypedText, setDisplayTypedText] = useState("");
 
   const handleFormsubmit = (e) => {
     e.preventDefault();
+    setDisplayList(listRef.current.value);
+  };
+
+  const handleTypedText = (e) => {
+    setDisplayTypedText(e.target.value);
   };
   return (
     <div className="App">
-      <div className="dispalyTyping">test</div>
-      <form action="" className="inUseForm" onSubmit={handleFormsubmit}>
-        <input type="text" placeholder="text" />
+      <div className="dispaly-typing">{displayTypedText}</div>
+      <form action="" className="user-form" onSubmit={handleFormsubmit}>
+        <input
+          className="user-input"
+          onChange={handleTypedText}
+          type="text"
+          placeholder="text"
+          ref={listRef}
+        />
         <button>Submit</button>
       </form>
-      <div className="displayList" ref={showList}></div>
+      <div className="display-list">{displayList}</div>
     </div>
   );
 }
