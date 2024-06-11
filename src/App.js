@@ -1,12 +1,26 @@
 import { useState } from "react";
 import "./App.css";
+import { Display } from "./components/Display";
+import { Form } from "./components/Form";
+import { List } from "./components/List";
 
 function App() {
-  const [name, setName] = useState("");
-  const handleOnChange = (e) => {
-    const { value } = e.target; //destructurng the value because value is the property of target
-    setName(value);
+  //   const [name, setName] = useState("");
+  const [list, setList] = useState([]);
+
+  const adduser = (name) => {
+    setList([...list, name]);
   };
+
+  //   const handleOnChange = (e) => {
+  //     const { value } = e.target; //destructurng the value because value is the property of target
+  //     setName(value);
+  //   };
+  //   const handleOnSubmit = (e) => {
+  //     e.preventDefault();
+  //     setList([...list, name]);
+  //   };
+  console.log(list);
   return (
     <div
       className="wrapper"
@@ -22,20 +36,9 @@ function App() {
         className="userList"
         style={{ boxShadow: "0 0 10px grey", padding: "2rem" }}
       >
-        <div className="display">{name}</div>
-
-        <div className="form">
-          <form action="">
-            <input type="text" onChange={handleOnChange} />
-            <button>Add</button>
-          </form>
-        </div>
-        <div className="list">
-          <ul>
-            <li>one</li>
-            <li>two</li>
-          </ul>
-        </div>
+        <Form adduser={adduser} />
+        <hr />
+        <List list={list} />
       </div>
     </div>
   );
