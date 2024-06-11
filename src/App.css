@@ -1,0 +1,7 @@
+.App {
+    background: radial-gradient(ellipse at center, white, black);
+  }
+  button {
+    background: radial-gradient(circle at center, white, grey, black);
+    border-radius: 5px;
+}
