@@ -1,15 +1,1 @@
-.App {
-    background: radial-gradient(ellipse at center, white, black);
-  }
-  button {
-    background: radial-gradient(circle at center, white, grey, black);
-    border-radius: 5px;
-}
 
-.display-list{
-    background: radial-gradient(ellipse at center,rgb(238, 229, 229), rgba(117, 199, 23, 0.9), rgb(60, 53, 53) );
-    border-radius: 20px;
-    height: 2rem;
-   padding: 5px;
-   
-}
