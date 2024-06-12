@@ -1,3 +1,4 @@
+
 import { Display } from "./Display";
 import { useState } from "react";
 export const Form = ({addRecord}) => {
@@ -24,3 +25,4 @@ export const Form = ({addRecord}) => {
         </form>
     );
 }
+

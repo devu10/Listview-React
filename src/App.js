@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useRef } from "react";
+
 import { useState } from "react";
 import { Display } from "./components/Display";
 import { Form } from "./components/Form";
@@ -24,6 +22,7 @@ function App() {
       
     <Form addRecord={addRecord}/>
       <UserList displayList={displayList}/>
+
       </div>
     </div>
   );
