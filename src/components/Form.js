@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+
 import { Display } from "./Display";
+import { useState } from "react";
+export const Form = ({addRecord}) => {
+    const [displayTypedText, setDisplayTypedText] = useState("");
+    const handleTypedText = (e) => {
+        const typed = e.target.value;
+        setDisplayTypedText(typed);
+      };
+      const handleFormsubmit = (e) => {
+        e.preventDefault();
+        addRecord(displayTypedText);
+      };
+    return (
+        <form action="" className="user-form" onSubmit={handleFormsubmit}>
+        <Display displayTypedText={displayTypedText}/>
+          <input
+            className="user-input"
+            onChange={handleTypedText}
+            type="text"
+            placeholder="text"
+          
+          />
+          <button>Submit</button>
+        </form>
+    );
+}
 
-export const Form = ({ adduser }) => {
-  const [name, setName] = useState("");
-
-  const handleOnChange = (e) => {
-    const { value } = e.target; //destructurng the value because value is the property of target
-    setName(value);
-  };
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-    // setList([...list, name]);
-    adduser(name);
-  };
-  return (
-    <div className="form">
-      <Display name={name} />
-      <form action="" onSubmit={handleOnSubmit}>
-        <input type="text" onChange={handleOnChange} />
-        <button>Add</button>
-      </form>
-    </div>
-  );
-};
